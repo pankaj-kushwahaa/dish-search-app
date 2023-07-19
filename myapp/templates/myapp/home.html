@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+{% block title %} Dishes {% endblock title %}
+{% block content %}
+<div class="container mt-2">
+  <div class="row">
+    {% if dishes %}
+      {% for dish in dishes %}
+      <div class="col-md-3 mt-2 mb-2">
+        <div class="card">
+          <div class="card-body">
+            <h5><a href="{% url 'dish-detail' dish.id %}" style="text-decoration: none;">{{dish.name}}</a> </h5> 
+            <h5>Rs. {{dish.rate}}</h5>  
+             <h6><i class='fa fa-coffee' style='font-size:26px;color:red'></i> : <a href="{% url 'restaurant-detail' dish.restaurant.restaurantId %}" style="text-decoration: none;">{{dish.restaurant.name}} </a></h6> 
+           <h6> <i class='fa fa-location-arrow' style='font-size:26px;color:red'></i> : 
+            {{dish.restaurant.city}}</h6>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+        No dishes found.
+      {% endfor %}
+    {% endif %}
+  </div>
+</div>
+
+
+{% if recommended %}
+<h3>Recommended Dishes</h3>
+<ul>
+  {% for dish in recommended %}
+    <li>{{ dish.name }} - Price Range: {{ dish.rate }} | Average Cost: Rs. {{ dish.restaurant.name }}</li>
+  {% empty %}
+    <li>No recommendations found.</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<div style="text-align: center;" class="mt-5 mb-5">
+  {%if dishes.has_previous %} {# whether the previous page exists #}
+      <a href="?page={{dishes.previous_page_number}}" class="link">Previous</a> {# link to the prev page #}
+  {% endif %}
+  <span> <strong>{{dishes.number}}</strong></span> 
+  
+  {%if dishes.has_next %} {# whether the next page exists #}
+    <a href="?page={{dishes.next_page_number}}" class="link">Next</a> {# link to the next page #}
+  {% endif %}
+</div>
+
+
+{% endblock content %}

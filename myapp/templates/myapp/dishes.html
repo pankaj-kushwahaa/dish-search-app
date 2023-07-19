@@ -1,0 +1,24 @@
+{% extends 'myapp/base.html' %}
+{% block title %} Dish Details {% endblock title %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <h4>{{dish.name}}</h4>
+        </div>
+        <div class="card-body">
+          <h4>Rs. {{dish.rate}}</h4>
+          <hr>
+          <h4>Restaurant Name : {{dish.restaurant.name}}</h4>
+          <h4>Rating : {{dish.restaurant.rating}}</h4>
+          <h4>City : {{dish.restaurant.city}}</h4>
+          <h4>Address : {{dish.restaurant.location}} </h4>
+          <h4>Location coordinates : {{dish.restaurant.coordinates}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
