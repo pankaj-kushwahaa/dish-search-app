@@ -7,17 +7,6 @@ import json
 
 def home(request):
   # df = pd.read_csv('myapp/restaurants.csv')
-  # rows = df[df['id'] == 10586]
-  # print(rows)
-  # print(rows.get('full_details').get("location", None))
-  # if rows.get('full_details').get("location", None) is not None:
-  #   print(rows.get('full_details').get("location", None))
-  # else:
-  #   print("value is none")
-  # empty_rows = df[df.isna().any(axis=1)]
-
-  # print("Rows with empty values:")
-  # print(empty_rows)
   # for index, row in df.iterrows():
   #   location = None
   #   cuisine = None
