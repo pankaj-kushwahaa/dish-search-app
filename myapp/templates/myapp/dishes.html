@@ -11,7 +11,7 @@
         <div class="card-body">
           <h4>Rs. {{dish.rate}}</h4>
           <hr>
-          <h4>Restaurant Name : {{dish.restaurant.name}}</h4>
+          <h4>Restaurant Name : <a href="{% url 'restaurant-detail' dish.restaurant.restaurantId %}" style="text-decoration: none;"> {{dish.restaurant.name}} </a> </h4>
           <h4>Rating : {{dish.restaurant.rating}}</h4>
           <h4>City : {{dish.restaurant.city}}</h4>
           <h4>Address : {{dish.restaurant.location}} </h4>
